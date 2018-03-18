@@ -1,0 +1,122 @@
+\documentclass[a4paper,12pt]{scrartcl}
+
+\usepackage{graphicx}
+\usepackage{%
+	algorithmic,%
+	amsmath,%
+	amssymb,%
+	amsthm,%
+	%booktabs,%
+	caption,%
+	%fixltx2e,%
+	hyperref,%
+	%mathpazo,%
+	%siunitx,%
+	%subcaption,%
+	%xspace,%
+	pgf,%
+	pgfgantt,%
+	pgfplots,%
+	tikz,%
+	url,%
+	xcolor,%
+	tabto,%
+	} 
+%\usepackage{color}
+
+\date{}
+\usepackage[left=18mm,right=18mm,top=20mm,bottom=20mm]{geometry}
+\usepackage[utf8]{inputenc} %-- pour utiliser des accents en français, ou autres
+\usepackage[mathscr]{eucal}
+%\usepackage[round]{natbib}
+%\usepackage[dvipsnames]{xcolor}%
+\usepgflibrary{shapes}
+\usetikzlibrary{%
+	arrows,positioning, shapes.symbols,shapes.callouts,patterns
+}
+\newcommand{\sS}{\mathscr{S}}
+\newcommand{\ie}{i.e.}
+\newcommand{\eg}{e.g.}
+\newcommand{\reffig}[1]{Figure~\ref{#1}}
+\newcommand{\refsec}[1]{Section~\ref{#1}}
+\renewcommand{\le}{\leqslant}
+\renewcommand{\ge}{\geqslant}
+\newcommand{\EQ}[1]{\begin{equation*}#1\end{equation*}}
+\setcapindent{1em} %-- for captions of Figures
+\renewcommand{\algorithmicrequire}{\textbf{Input:}}
+\renewcommand{\algorithmicensure}{\textbf{Output:}}
+
+
+
+\begin{document}
+
+
+\title{LATENCY MINIMIZING CODES FOR  DISTRIBUTED SYSTEMS}
+\author{
+Sarat Chandra Bobbili\\
+%\small{\texttt{baditakumar@iisc.ac.in}}\\
+%\large{Indian Institute of Science}
+\and
+Rooji Jinan\\
+%\small{\texttt{ankitdhiman@iisc.ac.in}}\\
+%\large{Indian Institute of Science}
+\and
+Ajay Kumar Badita\\
+%\small{\texttt{baditakumar@iisc.ac.in}}\\
+%\large{Indian Institute of Science}
+}
+\maketitle
+\section*{Motivation}
+
+Roadway traffic in cities and many other countries may be characterized by lack of lane discipline and a high degree of heterogeneity in the types of vehicles, driving behaviours, roadway geometry, and infrastructure conditions.
+However, existing literature in this area is based on rather stylized representations of traffic streams, including assumptions of lane discipline and homogeneity in vehicle types.
+These assumptions are difficult to justify and can potentially misguide traffic management practices such as traffic signal control and roadway capacity estimation.
+The challenges to be overcome in this context include, among others: $(a)$ realistic representation of vehicular movements and $(b)$ the consideration of various sources of heterogeneity mentioned above.
+An equally important challenge is the measurement of traffic streams at both microscopic and macroscopic levels.
+In this context,there is a pressing need for accurate modelling, and management of vehicular traffic.
+
+
+\section*{Background}
+
+Interacting Particle systems have been widely used in applications pertaining to finance, social networks and viral marketing.
+Many toy models of stochastic phenomena have been invented since the term is coined in Liggett's 1985 book.
+\newline
+A brief description of relevant Literature on problems which share common traits from ours are 
+\begin{itemize}
+\item In \cite{ChengCoRR2017}, the authors characterized the distortion in voting systems when candidates and voters are embedded in a common metric space. 
+
+\item With regards to Social networks, in \cite{romeroIWWWC2016}, the authors studied the effect of external events on the network's change in structure and communications.
+
+\item In \cite{carrilloWS2010}, the authors determined the asymptotic limits of a stochastic model for self propelled interacting particles.
+\end{itemize}
+
+\section*{Problem Statement}
+Roadway capacity is a key component in constructing and maintaining a road network.
+As the number of particles increases, holistic approaches become increasingly desirable than just tracing the path of one individual in the system. 
+In this regard, we would like to identify the factors influencing the stability of the system and hope to solve the following key challenges ubiquitous to any transportation network.
+
+\begin{enumerate}
+\item How does the net flux of the vehicles induces distortion in the network?
+
+\item How averaged the quantities like density, travel time, average speed of vehicles on a link change over time?
+
+\item What is the efficient control strategy for the given model to maximize the utilization of the network to its fullest?
+
+\item Can the system reach steady state behavior under sporadic disruptions?
+\end{enumerate} 
+
+\section*{Proposed Solution}
+we define the intersections in the road network and vehicles as the two types of particles.The former being a static particle or (Type-1) particle, the latter is a self-propelling particle or (Type-2)particle. Assuming that there is no interaction between particles belonging to the same category,we model the vehicles as self propelling particles.
+
+Under the current model, we wish to employ techniques from \cite{ChengCoRR2017} to characterize the networks evolution and effects of      
+%\newpage
+\bibliographystyle{IEEEtran}
+\bibliography{SPQTproject}
+
+
+%\section*{References}
+%[1] On the Distortion of Voting with Multiple Representative Candidates
+%[2] Social Networks under stress
+%[3] Self propelled interacting particle systems with roosting force. 
+    
+\end{document}
