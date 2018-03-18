@@ -1,0 +1,303 @@
+
+% SECTION Numbers --------------------------------------------------------
+%\renewcommand{\thesection}{\Roman{section}}
+%\renewcommand{\thesubsection}{\Alph{subsection}}
+
+% PACKAGES used --------------------------------------------------------------
+\usepackage{%	
+	amscd,%
+	amsfonts,%
+	amsmath,%
+	amssymb,%
+	%amsthm,%
+	%biblatex,%
+	%bibunits,%
+	epsfig,%
+	etoolbox,%
+	%multibib,%
+	%multibbl,%
+	%mathrsfs,%
+	newlfont,%
+	nopageno,%
+	pgf,%
+	pgfgantt,%
+	pgfplots,%
+	subfig,%
+	tikz,%
+	xcolor,%
+}
+\usepackage[mathscr]{eucal}
+
+%\usepackage[dvips]{graphicx}
+\usepgflibrary{shapes}
+\usetikzlibrary{%
+  arrows,%
+  shapes.misc,% wg. rounded rectangle
+  shapes.arrows,%
+  shapes,%
+  shapes.callouts,%
+  chains,%
+  matrix,%
+  positioning,% wg. " of "
+  %scopes,%
+  decorations.pathmorphing,% /pgf/decoration/random steps | erste Graphik
+  decorations.text,%
+  %shadows,%
+  %backgrounds,%
+  %fit,%
+  %petri%
+}
+
+% COLOR --
+\definecolor{ultramarine}{RGB}{0,32,96} 
+\definecolor{qc}{RGB}{0,48,48} 
+
+
+% THEOREM Environments ---------------------------------------------------
+%\theoremstyle{definition}
+\newtheorem{thm}{Theorem}
+\newtheorem{cor}{Corollary}
+\newtheorem{lem}{Lemma}
+\newtheorem{prop}{Proposition}
+\newtheorem{conj}{Conjecture}
+\newtheorem{defn}{Definition}
+\newtheorem{exam}{Example}
+\newtheorem{assump}{Assumption}
+\newtheorem{prpy}{Property}
+%\newtheorem{tba}{TBA}[section]
+%\theoremstyle{remark}
+\newtheorem{rem}{Remark}
+%\numberwithin{equation}{subsection}
+
+% MATH ----------------------------------------
+\newcommand{\beq}{\begin{equation}}
+\newcommand{\eeq}{\end{equation}}
+\newcommand{\ba}{\begin{align}}
+\newcommand{\ea}{\end{align}}
+\newcommand{\ben}{\begin{enumerate}}
+\newcommand{\een}{\end{enumerate}}
+\newcommand{\ber}{\begin{eqnarray}}
+\newcommand{\eer}{\end{eqnarray}}
+\newcommand{\lb}{\left (}
+\newcommand{\rb}{\right )}
+\newcommand{\lnr}{\left\vert}
+\newcommand{\rnr}{\right\vert}
+\newcommand{\ls}{\left[}
+\newcommand{\rs}{\right ]}
+
+
+\newcommand{\nonum}{\nonumber \\}
+\newcommand{\nd}{\noindent}
+\newcommand{\To}{\longrightarrow}
+\newcommand{\tr}{\mathrm{tr}}
+\newcommand{\diag}{\mathrm{diag}}
+\newcommand{\avg}{E}
+\newcommand{\rank}{\mathrm{rank}}
+
+\newcommand{\abs}[1]{\left\vert#1\right\vert}
+\newcommand{\norm}[1]{\lVert#1\rVert}
+\newcommand{\IP}[1]{\left\langle #1 \right\rangle}
+\newcommand{\cv}[1]{\mathbf{#1}}
+\newcommand{\cvs}[1]{\boldsymbol{#1}}
+\newcommand{\expekt}[1]{\mathbf{E}\left\{ #1 \right\}}
+\newcommand{\cexpekt}[1]{\mathbf{E}_{\vecx \in \Rbar_i}\left\{ #1 \right\}}
+\newcommand{\dexpekt}[1]{\mathbf{E}_{\vecx \in \Rhat_1}\left\{ #1 \right\}}
+\newcommand{\eexpekt}[1]{\mathbf{E}_{\vecx \in \Rhat_i}\left\{ #1 \right\}}
+\newcommand{\vexpekt}[2][1]{\mathbf{E}_{#1}\left\{ #2 \right\}}
+\newcommand{\al}[1]{\alpha_{#1}}
+\newcommand{\refSecs}[2][1]{\ref{#1}(\ref{#2})}
+
+%\newcommand{\setxysize}{\epsfysize=2.8in \epsfxsize=2.8in}
+
+
+
+%\newcommand{\eq}[1]{\begin{align*}#1\end{align*}}
+%\newcommand{\indep}{\!\perp\!\!\!\perp}
+%\DeclarePairedDelimiter\abs{\lvert}{\rvert}%
+%%\DeclarePairedDelimiter\norm{\lVert}{\rVert}%
+%\newcommand{\tr}{\operatorname{tr}}
+%\newcommand{\Var}{\operatorname{Var}}
+%\newcommand{\Cov}{\operatorname{Cov}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\F}{\mathbb{F}}
+\newcommand{\N}{\mathbb{N}}
+\renewcommand{\P}{\mathbb{P}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\Z}{\mathbb{Z}}
+
+\newcommand{\cE}{\mathcal{E}}
+\newcommand{\cX}{\mathcal{X}}
+\newcommand{\cY}{\mathcal{Y}}
+\newcommand{\cM}{\mathcal{M}}
+%\newcommand{\N}{\mathcal{N}}
+%\newcommand{\R}{\mathcal{R}}
+\newcommand{\cS}{\mathcal{S}}
+%\newcommand{\E}{\mathcal{E}}
+\newcommand{\cT}{\mathcal{T}}
+
+\newcommand{\sX}{\mathscr{X}}
+\newcommand{\sY}{\mathscr{Y}}
+
+\newcommand{\Rbar}{\bar{\R}}
+\newcommand{\Dbar}{\bar{D}}
+\newcommand{\Sbar}{\bar{\eS}}
+\newcommand{\Ebar}{{\bar{\E}}}
+\newcommand{\Rhat}{\hat{\R}}
+\newcommand{\Ehat}{\hat{\E}}
+\newcommand{\Pc}{\mathcal{P}}
+\newcommand{\kyu}{\mathcal{Q}}
+\newcommand{\St}{\mathcal{S}}
+
+%\newcommand{\Real}{\mathbb{R}}
+\newcommand{\Imag}{\mathbb{I}}
+\newcommand{\Complex}{\mathbb{C}}
+\newcommand{\Field}{\mathbf{F}}
+\newcommand{\RPlus}{\Real^{+}}
+\newcommand{\Range}{\mathcal{R}}
+\newcommand{\Null}{\mathcal{N}}
+\newcommand{\real}{\mathrm{Real}}
+\newcommand{\imag}{\mathrm{Imag}}
+
+\newcommand{\vecv}{{\mathbf v}}
+\newcommand{\vecn}{{\mathbf n}}
+\newcommand{\vecz}{{\mathbf z}}
+\newcommand{\vecr}{{\mathbf r}}
+\newcommand{\vecs}{{\mathbf s}}
+\newcommand{\hats}{\hat{\mathbf s}}
+
+\newcommand{\vhat}{\hat{\vecv}}
+\newcommand{\vopt}{\vecv_{\text{opt}}}
+\newcommand{\lopt}{\lambda_{\text{opt}}}
+\newcommand{\vecy}{{\mathbf y}}
+\newcommand{\vecx}{{\mathbf x}}
+\newcommand{\xbar}{\bar{\mathbf x}}
+\newcommand{\ybar}{\bar{\mathbf y}}
+\newcommand{\vece}{{\mathbf e}}
+\newcommand{\vecg}{{\mathbf g}}
+\newcommand{\xhat}{{\hat{\mathbf x}}}
+\newcommand{\yhat}{\hat{\mathbf y}}
+\newcommand{\vech}{{\mathbf h}}
+\newcommand{\vecu}{\mathbf u}
+\newcommand{\vecw}{\mathbf w}
+\newcommand{\what}{\hat{\vecw}}
+\newcommand{\vone}{\vecv_1}
+\newcommand{\talpha}{\tilde{\alpha}}
+\newcommand{\onev}{\mathbf{\underline{1}}}
+\newcommand{\ttwo}{\theta_2}
+
+\newcommand{\pea}{\rho}
+
+\newcommand{\sumint}{\sum_{i=1}^{\nt}}
+\newcommand{\sumjnt}{\sum_{j=1}^{\nt}}
+\newcommand{\sumknt}{\sum_{k=1}^{\nt}}
+\newcommand{\sumlnt}{\sum_{l=1}^{\nt}}
+
+
+\newcommand{\deff}{\triangleq}
+%\newcommand{\tht}[1]{\thta_{#1}}
+\newcommand{\diagl}[1]{\diag\lb{#1}\rb}
+\newcommand{\grad}{\nabla}
+\newcommand{\out}{\mbox{out}}
+\newcommand{\prob}{\mbox{Prob}}
+\newcommand{\half}{\frac{1}{2}}
+\newcommand{\intzp}{\int_{0}^{\frac{\pi}{2}}}
+
+\newcommand{\thta}{\theta}
+\newcommand{\vthta}{\underline{\vartheta}}
+\newcommand{\tht}[1]{\thta_{#1}}
+\newcommand{\ejt}[1]{\exp{j \tht{#1}}}
+\newcommand{\alf}[1]{\alpha_{#1}}
+\newcommand{\zone}{z_1\lb\vthta\rb}
+\newcommand{\ztwo}{z_2\lb\vthta\rb}
+\newcommand{\phsv}{[\exp{j \tht{1}}, \exp{j \tht{2}}, \ldots,
+\exp{j \tht{t}}]}
+\newcommand{\phsvl}{[1, \exp{j \tht{2}}, \ldots,
+\exp{j \tht{t}}]}
+\newcommand{\alfv}{[\alf{1}, \alf{2}, \ldots, \alf{t}]}
+\newcommand{\ualf}{\underline{\alpha}}
+\newcommand{\uhalf}{\underline{\hat{\alpha}}}
+\newcommand{\dalf}{\diag\lb\ualf\rb}
+\newcommand{\hh}{A}
+
+\newcommand{\clhat}{\hat{C}_L}
+\newcommand{\clone}{C_L^{(1)}}
+\newcommand{\cltwo}{C_L^{(2)}}
+\newcommand{\uthta}{\underline{\thta}}
+\newcommand{\uhthta}{\underline{\hat{\thta}}}
+%\newcommand{\upsi}{\underline{\psi}}
+\newcommand{\zero}{\underline{\mathbf{0}}}
+
+\newcommand{\Dom}{\mathcal{D}}
+\newcommand{\pji}{P_{j|i}}
+\newcommand{\edone}{E_d^{(1)}}
+\newcommand{\edthree}{E_d^{(3)}}
+\newcommand{\lconv}{\lambda_{\textrm{conv}}}
+\newcommand{\aye}{\epsilon}
+\newcommand{\eystar}{I_*}
+\newcommand{\sumialN}{\sum_{i=1}^{\alpha N}}
+\newcommand{\sumjalN}{\sum_{j=1}^{\alpha N}}
+\newcommand{\sumjalNneqi}{\sum_{j=1, j\neq i}^{\alpha N}}
+\newcommand{\intRbari}{\int_{\vecx \in \Rbar_i}}
+\newcommand{\intRhati}{\int_{\vecx \in \Rhat_i}}
+\newcommand{\fxdx}{f_\vecx(\vecx) d\vecx}
+\newcommand{\alfnp}{\varphi_{(\alpha,N)}}
+
+\newcommand{\hphi}{\hat{\phi}}
+\newcommand{\uphi}{\underline{\phi}}
+\newcommand{\upsi}{\underline{\psi}}
+\newcommand{\uhphi}{\underline{\hat{\phi}}}
+\newcommand{\sumr}{s_\vecr}
+\newcommand{\bovp}{\frac{\beta}{2 \pi}}
+\newcommand{\byomg}{B_\vecy(\omega)}
+\newcommand{\bxomg}{B_\vecx(\omega)}
+\newcommand{\deen}{D_N}
+\newcommand{\pmax}{P_{\max}}
+\newcommand{\dmax}{d_{\max}}
+\newcommand{\ess}{\varepsilon}
+\newcommand{\dhatij}{\hat{d}_{ij}}
+\newcommand{\dhatii}{\hat{d}_{ii}}
+\newcommand{\edpi}{E_{d|\pi}}
+\newcommand{\edtpi}{\tilde{E}_{d|\pi}}
+\newcommand{\ppiji}[2][1]{P_{\pi({#1})|\pi({#2})}}
+\newcommand{\ptji}[2][1]{P_{{#1}|{#2}}}
+\newcommand{\dhatt}[2][1]{\hat{d}_{{#1}{#2}}}
+\newcommand{\Vared}{\mbox{Var}(\edtpi)}
+
+\newcommand{\crit}{\text{crit}}
+\newcommand{\ayeone}{\aye_{\crit ,1}}
+\newcommand{\ayetwo}{\aye_{\crit ,2}}
+\newcommand{\opt}{\text{opt}}
+\newcommand{\varphiopt}{\varphi_\opt}
+
+
+% Debug
+\newcommand{\todo}[1]{\begin{color}{blue}{{\bf~[TODO:~#1]}}\end{color}}
+\newcommand{\red}[1]{\begin{color}{red}{#1}\end{color}}
+
+%%%%%%
+\def\BibTeX{{\rm B\kern-.05em{\sc i\kern-.025em b}\kern-.08em
+    T\kern-.1667em\lower.7ex\hbox{E}\kern-.125emX}}
+
+%\renewcommand{\baselinestretch}{1.0}
+
+\topmargin 0.0in \evensidemargin 0.0in \oddsidemargin 0.0in
+\textheight= 9.0in \textwidth 6.5in \setlength{\topmargin}{0in}
+%\linespread{1.6}
+\linespread{1.0}
+
+\textfloatsep 8pt plus 10pt minus 12pt
+\newcommand{\spacefix}{0.0cm}
+\newcommand{\spacebetnitems}{0.3in}
+
+\long\def\symbolfootnote[#1]#2{\begingroup%
+\def\thefootnote{\fnsymbol{footnote}}\footnote[#1]{#2}\endgroup}
+
+%\newcommand{\setxysize}{\epsfysize=3.5in \epsfxsize=3.7in}
+\newcommand{\setxysize}{\epsfxsize=4.2in}
+% \newcommand{\spltxt}{\underline}
+\newcommand{\spltxt}{}
+
+%%%% Multiple Bibliographies %%%%
+\usepackage[style=ieee,backend=bibtex,defernumbers=true]{biblatex} 
+\addbibresource{early-career.bib} % Peculiar to biblatex
