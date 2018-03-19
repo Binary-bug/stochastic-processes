@@ -51,7 +51,7 @@
 \begin{document}
 
 
-\title{LATENCY MINIMIZING CODES FOR  DISTRIBUTED SYSTEMS}
+\title{Modeling Behavioral dynamics of Road Networks as Interacting particle systems}
 \author{
 Sarat Chandra Bobbili\\
 %\small{\texttt{baditakumar@iisc.ac.in}}\\
@@ -92,23 +92,27 @@ A brief description of relevant Literature on problems which share common traits
 
 \section*{Problem Statement}
 Roadway capacity is a key component in constructing and maintaining a road network.
-As the number of particles increases, holistic approaches become increasingly desirable than just tracing the path of one individual in the system. 
+As the number of particles increases, holistic approaches to characterize behavior become increasingly desirable than just tracing the path of one individual in the system. 
 In this regard, we would like to identify the factors influencing the stability of the system and hope to solve the following key challenges ubiquitous to any transportation network.
 
 \begin{enumerate}
-\item How does the net flux of the vehicles induces distortion in the network?
+\item What is the threshold flux of the vehicles beyond which significant distortion takes place in the network?
 
-\item How averaged the quantities like density, travel time, average speed of vehicles on a link change over time?
+\item How the averaged quantities like density, travel time, average speed of vehicles on a link change over time?
 
 \item What is the efficient control strategy for the given model to maximize the utilization of the network to its fullest?
 
-\item Can the system reach steady state behavior under sporadic disruptions?
+\item Under the occurrence of sporadic disruptions like road accidents, what will be the extent of the affected zone?
+
+what should be the ideal control strategy to be used to help the system re-attain the steady state? what is the expected time to reach the steady state?
+
 \end{enumerate} 
 
 \section*{Proposed Solution}
-we define the intersections in the road network and vehicles as the two types of particles.The former being a static particle or (Type-1) particle, the latter is a self-propelling particle or (Type-2)particle. Assuming that there is no interaction between particles belonging to the same category,we model the vehicles as self propelling particles.
 
-Under the current model, we wish to employ techniques from \cite{ChengCoRR2017} to characterize the networks evolution and effects of      
+We define the intersections in the road network and vehicles as the two types of particles. The former being a static particle or (Type-1) particle, the latter is a self-propelling particle or (Type-2) particle. Assuming that there is no interaction between particles belonging to the same category, we model the vehicles as self propelling particles.
+
+Under the current model, we wish to employ techniques from \cite{ChengCoRR2017} to characterize the networks evolution.      
 %\newpage
 \bibliographystyle{IEEEtran}
 \bibliography{SPQTproject}
