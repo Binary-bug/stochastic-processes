@@ -67,27 +67,56 @@ Ajay Kumar Badita\\
 }
 \maketitle
 
-\tableofcontents %Table of contents
+%\tableofcontents %Table of contents
 
 \section{Introduction}
+Research on the subject of traffic flow modelling started some sixty years ago, when Lighthill and
+Whitham (1955) presented a model based on the analogy of vehicles in traffic flow and particles in a
+fluid.
+In \cite{hoogendoorn2001JSCE}, the authors provided the insights into traffic modelling efforts during the last six decades of traffic flow operations related research.
 
+During the 1960’s, research efforts focussed on the so-called follow the leader models. These models
+are based on supposed mechanisms describing the process of one vehicle following another. We will
+discuss three types of car-following models, namely safe-distance models, stimulus-response models,
+and psycho-spacing models.
 
+Therefore, vehicular traffic, modeled as a system of \emph{interacting ‘particles' driven far from equilibrium}, offers the possibility to study various fundamental aspects of truly nonequilibrium systems which are of current interest in statistical physics.
+
+Analytical as well as numerical techniques of statistical physics are being used to study these models to understand rich variety of physical phenomena exhibited by vehicular traffic .
+Some of these phenomena, observed in vehicular traffic under different circumstances, include transitions from one dynamical phase to another, criticality and self-organized criticality, metastability and hysteresis, phase-segregation, etc. 
+
+In \cite{chowdhury2000PR}, written from the perspective of statistical physics, the authors explained the guiding principles behind all the main theoretical approaches and they presented the detail discussions on the results obtained mainly from the so-called \emph{‘particle-hopping'} models, particularly emphasizing those which have been formulated in recent years using the language of cellular automata.
+
+The concepts and techniques of statistical physics are being used nowadays to study several
+aspects of vehicular traffic \cite{wolf1996WS,schreckenberg1998WS}.
+For almost half a century physicists have been trying to understand the fundamental principles governing the flow of vehicular traffic using theoretical approaches based on statistical physics \cite{herman1963SA,prigogine1971TRID}
+
+We define the intersections in the road network and vehicles as the two types of particles. The former being a static particle or (Type-1) particle, the latter is a self-propelling particle or (Type-2) particle. Assuming that there is no interaction between particles belonging to the same category, we model the vehicles as self propelling particles.
+
+Under the current model, we wish to employ techniques from \cite{ChengCoRR2017} to characterize the networks evolution. 
+
+\newpage
 \section{Literature review}
-Theory of traffic flow modelling is a well studied area of research. The flow variables used to model the traffic flow maybe classified in to two categories (based on the level of detail required in the model) as \emph{microscopic} and \emph{macroscopic}. The most important flow variable is the vehicle trajectory that gives the position of the vehicle with time. Microscopic flow variables generally are dependent on the individual drivers, like total travel time, overtaking events, distance headway etc. Whereas, macroscopic variables try to model the average state of the traffic flow. Some examples are flow, density, speed etc. Whenever there are some changes in the traffic flow, like a change in traffic signal, the individual drivers react accordingly by accelerating or decelerating the vehicle, by changing the lane or any other appropriate action. Generally, it takes some time for the traffic flow to get adapted to the new changes. On the other hand, if the environment does not change for some time, then it is likely that the traffic flow achieves a stationary distribution which can then be described in terms of macroscopic variables. Besides microscopic and macroscopic modelling of traffic flow, there is an intermediate approach known as the \emph{mesoscopic} modelling.
+Theory of traffic flow modelling is a well studied area of research. The flow variables used to model the traffic flow maybe classified in to two categories (based on the level of detail required in the model) as \emph{microscopic} and \emph{macroscopic} \cite{hoogendoorn2001JSCE}. The most important flow variable is the vehicle trajectory that gives the position of the vehicle with time. Microscopic flow variables generally are dependent on the individual drivers, like total travel time, overtaking events, distance headway etc. Whereas, macroscopic variables try to model the average state of the traffic flow. Some examples are flow, density, speed etc. 
 
-Also, different models has been developed for different scale of application. Some works attempt to model the traffic dynamics in a city or an entire traffic network, while some others model a single intersection or corridor. Traffic models found in literature are also classified as continuous and discrete depending on whether the traffic state is assumed to vary continuosly over time or at discrete instants of time.
+In the "microscopic" models of vehicular traffic, attention is paid explicitly to each individual
+vehicle each of which is represented by a "particle"; the nature of the "interactions" among these particles is determined by the way the vehicles influence each others’ movement.
+
+Whenever there are some changes in the traffic flow, like a change in traffic signal, the individual drivers react accordingly by accelerating or decelerating the vehicle, by changing the lane or any other appropriate action. Generally, it takes some time for the traffic flow to get adapted to the new changes. On the other hand, if the environment does not change for some time, then it is likely that the traffic flow achieves a stationary distribution which can then be described in terms of macroscopic variables. Besides microscopic and macroscopic modelling of traffic flow, there is an intermediate approach known as the \emph{mesoscopic} modelling.
+
+%Also, different models has been developed for different scale of application. Some works attempt to model the traffic dynamics in a city or an entire traffic network, while some others model a single intersection or corridor. Traffic models found in literature are also classified as continuous and discrete depending on whether the traffic state is assumed to vary continuosly over time or at discrete instants of time.
 
 Queuing theory offers a simple way of characterizing the traffic model. 
 A queue is build up whenever the traffic inflow exceeds the traffic outflow. 
 But, the major setback of this approach is the inability to model spatial relation between vehicles. One of the theories that includes the spatial dimension as well is the shockwave theory.
-Here, shockwaves represent the boundaries between two traffic states and the theory helps in analyzing the dynamics of these boundaries.
+Here, shockwaves represent the boundaries between two traffic states and this theory helps in analyzing the dynamics of these boundaries.
 
-Several models can be found in literature that models the dynamics of a vehicle which follows another in an uninterrupted traffic flow. These are referred to as car following models.
+Several models can be found in literature that models the dynamics of a vehicle which follows another in an uninterrupted traffic flow. These are referred to as car following models\cite{chakroborty1999TRET}.
 Some of the most widely used models are Pipes, Forbes, Gipp's, Intelligent driver and General motors model. 
 
-Another popular model used for microscopic modelling of traffic flow is the cellular automaton or the particle hopping model. Here, the vehicles or particles are modelled to be occupying positions in a lattice. The time and space is divided in to cells and steps and the vehicles can move to the neighbouring cell in one step.The models also specify the rules under which a vehicle can be exchanged between two cell sites. The basic cellular automaton model introduced by Nagel and Schreckenberg (1992) has only four rules controlling these dynamics.
+Another popular model used for microscopic modelling of traffic flow is the cellular automaton or the particle hopping model\cite{chowdhury2000PR}. Here, the vehicles or particles are modelled to be occupying positions in a lattice. The time and space is divided in to cells and steps and the vehicles can move to the neighbouring cell in one step.The models also specify the rules under which a vehicle can be exchanged between two cell sites. The basic cellular automaton model introduced in \cite{nagel1992EDP}, has only four rules controlling these dynamics.
 
-The individual vehicular movement can also be characterized by interacting particle systems. But, it is difficult to analyze these problems as the state of the system will usually be driven far off from equilibrium. The interactions between the particles make it difficult to analyze such systems without any approximations. In this context, many works has been done that investigates the phase transitions and phase coexistence in traffic networks. Earlier works modelled traffic flow on high ways with atleast two phases : free flow phase and congested phase. Later, two different congested phases, namely, the synchronized phase and stop-and-go phase was identified. The vehicles can move at high speed in the free flow phase, whereas in synchronized phase, they move at a much slower pace. The stop-and-go phase chracterizes the traffic that comes to complete halt due to traffic jams or traffic signals. 
+The individual vehicular movement can also be characterized by interacting particle systems. But, it is difficult to analyze these problems as the state of the system will usually be driven far off from equilibrium. The interactions between the particles make it difficult to analyze such systems without any approximations. In this context, many works has been done,which investigates the phase transitions and phase coexistence in traffic networks\cite{dal2017MMAS}. Earlier works modelled traffic flow on high ways with atleast two phases : free flow phase and congested phase. Later, two different congested phases, namely, the synchronized phase and stop-and-go phase was identified. The vehicles can move at high speed in the free flow phase, and they move at a much slower pace in synchronized phase,. The stop-and-go phase chracterizes the traffic that comes to complete halt due to traffic jams or traffic signals. 
 
 
 
