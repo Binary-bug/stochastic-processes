@@ -1,5 +1,6 @@
 \documentclass[a4paper,12pt]{scrartcl}
-
+\usepackage{sectsty}
+\subsubsectionfont{\normalfont\itshape}
 \usepackage{graphicx}
 \usepackage{%
 	algorithmic,%
@@ -116,10 +117,81 @@ Some of the most widely used models are Pipes, Forbes, Gipp's, Intelligent drive
 
 Another popular model used for microscopic modelling of traffic flow is the cellular automaton or the particle hopping model\cite{chowdhury2000PR}. Here, the vehicles or particles are modelled to be occupying positions in a lattice. The time and space is divided in to cells and steps and the vehicles can move to the neighbouring cell in one step.The models also specify the rules under which a vehicle can be exchanged between two cell sites. The basic cellular automaton model introduced in \cite{nagel1992EDP}, has only four rules controlling these dynamics.
 
-The individual vehicular movement can also be characterized by interacting particle systems. But, it is difficult to analyze these problems as the state of the system will usually be driven far off from equilibrium. The interactions between the particles make it difficult to analyze such systems without any approximations. In this context, many works has been done,which investigates the phase transitions and phase coexistence in traffic networks\cite{dal2017MMAS}. Earlier works modelled traffic flow on high ways with atleast two phases : free flow phase and congested phase. Later, two different congested phases, namely, the synchronized phase and stop-and-go phase was identified. The vehicles can move at high speed in the free flow phase, and they move at a much slower pace in synchronized phase,. The stop-and-go phase chracterizes the traffic that comes to complete halt due to traffic jams or traffic signals. 
+The individual vehicular movement can also be characterized by interacting particle systems. But, it is difficult to analyze these problems as the state of the system will usually be driven far off from equilibrium. The interactions between the particles make it difficult to analyze such systems without any approximations. In this context, many works has been done,which investigates the phase transitions and phase coexistence in traffic networks\cite{dal2017MMAS}. Earlier works modelled traffic flow on high ways with atleast two phases : free flow phase and congested phase. Later, two different congested phases, namely, the synchronized phase and stop-and-go phase was identified. The vehicles can move at high speed in the free flow phase, and they move at a much slower pace in synchronized phase,. The stop-and-go phase chracterizes the traffic that comes to complete halt due to traffic jams or traffic signals.
+\newpage
+\section*{System Model}
+In Queueing theory,Network of queues have been extensively studied for modeling situations where a customer has to wait in a number of different queues before completing the desired transaction and leaving the system.One such model is the Jackson Networks,wherein we have a network of k interconnected queuing systems which we call nodes.Each of the k nodes receives customers both from outside the network (exogenous inputs) and from nodes within the network (endogenious inputs).\\ 
+Drawing a parallel,the key components in any road network intersections play the role of queues and the joining of new vehicles will be identified as customer arrivals.
+In a mathematical framework, let $\mathbb{G(V,E)}$ denote the road network, where the $|V|=N+1 , V = I \cup \{0\}$, I = {1,2,...N} is the set of intersections and edges denote the transition probabilities $Q_{ij},\quad i,j\in V$ from one node to another.we will use the term node to discuss intersections to avoid confusion and the rationale behind introduction of a fictitious node $0$ will be explained shortly.\\ 
+In a practical setting we have vehicles arriving as exogenous inputs to an arbitrary node, upon service completion joining another node with some probability and continues to traverse for a definite amount of time eventually leaving the network. Notationally, we are regarding the node $0$ as both the source and the sink from which vehicles appear and to which the vehicles disappear.
+It is assumed that the exogenous inputs to each node $i\in {1,..N}$ form a Poisson process of rate $r_i$ and that these poisson processes are independent of each other.For simplicity, we view this as a single poisson process of rate $r_0$,with each input independently going to each node i with probability $Q_{0i} = r_i/r_0$.\\
 
+\textit{Lemma:} Each node i contains a single server, and the successive service times at node i are $iid$ with an exponentially service times of rate $\mu_i$.\\
+Proof:$< to \quad be \quad filled>$\\
+\\
+The service times at each node are also independent of the service times at all other nodes and independent of the exogenous arrival times at all nodes.When a vehicle leaves a node $i$, that vehicle is route to node $j$ with probability $Q_{ij}$ and it is also possible for the vehicle to depart from the network entirely which happens with a probability $Q_{i0} = 1 - \sum_{j \in I}Q_{ij}.$ To this end for any vehicle departing from a node $i,$ the next node $j$ is a random variable with pmf\{$Q_{ij},0 \leq j \leq N$\}.
 
+\subsubsection*{key assumptions}
+\textit{Assumption 1}: When a vehicle is routed from node $i$ to $j$, it is assumed that the routing is instantaneous; thus at the departure instant from node i,there is a simultaneous endogenous arrival at node j.\\
+\textit{Assumption 2}:The time average rate of departures from each node equals the time average rate of arrivals and such rates exist.\\
+\textit{Assumption 3}: The combined exogenous and endogenous arrivals as being served under first come first served policy\\
+Both assumptions 1 $\&$ 3 are justified because it really makes no difference in which order they are served and how they arrive since the vehicles are statistically identical  simply give a service rate of $\mu_j$ at node $j$. Assumption 2 implies that the queue size does not grow linearly in time. 
+\newpage
+\subsubsection*{Markov Structure}
+The network as a whole is a Markov process in which the state is a vector $\textbf{n} = {n_1,n_2,....,n_N}$, where $n_i, i \in I$, is the number of vehicles at node $i$. State changes occur either due to exogenous arrivals to nodes or exogenous departures from various nodes, and departures from one node to another node.\\
+In a small interval $\delta$ of time given that the state is $\textbf{n}$,\\
+\\
+If an exogenous arrival at node j occurs in the interval with probability $r_0Q_{0j}\delta$ and state changes to $\textbf{n}^{\prime} = \textbf{n} + \textbf{e}_j,$ where $\textbf{e}_j$ is a vector of appropriate dimension with a one in position $j$.\\
+\\
+If $n_i > 0 $, an exogenous departure from node $i$ occurs with probability $\mu_iQ_{i0}\delta$ and the state changes to $\textbf{n}^{\prime} = \textbf{n} - \textbf{e}_i.$\\
+\\ 
+If $n_i > 0 $, a departure from node $i$ entering node $j$ occurs with probability $\mu_iQ_{ij}\delta$ and changes the state to $\textbf{n}^{\prime} = \textbf{n} - \textbf{e}_i + \textbf{e}_j.$ Therefore, the tranisition rates are given by,
 
+\begin{align}
+q_{\textbf{n},\textbf{n}^{\prime}}&=r_0Q_{0j}\quad\quad for\enspace\textbf{n}^{\prime} = \textbf{n} + \textbf{e}_j,\quad j\in I\\
+&=\mu_iQ_{i0} \quad\quad for\enspace\textbf{n}^{\prime} = \textbf{n} - \textbf{e}_i,\quad n_i > 0, i \in I\\
+&=\mu_iQ_{ij} \quad\quad for\enspace\textbf{n}^{\prime} = \textbf{n} - \textbf{e}_i + \textbf{e}_j,\quad n_i > 0, i,j \in I\\
+&= 0 \quad\quad\quad\quad otherwise
+\end{align}
+
+\subsubsection*{Objective $\mathit{I}$}
+We aim to find the steady state probabilities p($\textbf{n}$).  Our approach is to find this by reversibility arugments.\\
+Let us define $\lambda_i$ for each $i \in I$, as the time-average overall rate of arrivals to node i, including both exogenous and endogenous arrivals and $\lambda_0 = r_0$.Then these rates must satisfy the equation
+
+\begin{equation}
+\lambda_i = \sum_{j=0}^{N} \lambda_j Q_{ji} \quad i \in I
+\end{equation}\\
+Consider the backward process.Since we have only three kinds of transitions in the forward process.Corresponding to each arrival in the forward process, there is a departure in the backward process; for each forward departure, there is a backward arrival; and for each forward passage from i to j, there is a backward passage from j to i.\\
+We make the conjecture that the backward process is itself a Jackson Network with poisson exogenous arrivals at rates $\lambda_0 Q_{0j}^{*}$,service times are exponential with rates   $\mu_i$, and routing probabilities $Q_{ij}^*$.Since each transition from $i$ to $j$ in the forward process must correspond to a transition from $j$ to $i$ in the backward process, we have
+\begin{equation}
+\lambda_i Q_{ij} = \lambda_j Q_{ji}^* 0 \leq i,j \leq N
+\end{equation}
+$\lambda_i Q_{ij}$ represents the rate at which forward transitions go from $i$ to $j$, and $\lambda_i$ represnets the rate at which forward transitions leave node $i$ which is also by $\textit{Assumption 2},$ the rate at which forward tranistions enter node $i$.Thus, it is also the rate at which backward transitions leave node $i$.Therefore, we can write the backward transition rates as
+\begin{align}
+q_{\textbf{n},\textbf{n}^{\prime}}^*&=\lambda_0Q_{0j}^*=\lambda_jQ_{j0}\quad\quad\quad\quad\quad for\enspace\textbf{n}^{\prime} = \textbf{n} + \textbf{e}_j,\quad j\in I\\
+&=\mu_iQ_{i0}^*=(\mu_i/\lambda_i)\lambda_0Q_{0i} \quad\quad for\enspace\textbf{n}^{\prime} = \textbf{n} - \textbf{e}_i,\quad n_i > 0, i \in I\\
+&=\mu_iQ_{ij}^*=(\mu_i/\lambda_i)\lambda_jQ_{ji} \quad\quad for\enspace\textbf{n}^{\prime} = \textbf{n} - \textbf{e}_i + \textbf{e}_j,\quad n_i > 0, i,j \in I
+\end{align}
+From Reversibility of a Markov Process we have, the stationary probabilities $p(\textbf{n})$ and the transition rates of  the backward process $q_{\textbf{n}^{\prime},\textbf{n}}^*$ as the solution to the following equations:
+\begin{align*}
+p(\textbf{n})q_{\textbf{n},\textbf{n}^{\prime}}&=p(\textbf{n}^{\prime})q_{\textbf{n}^{\prime},\textbf{n}}^*\qquad for\enspace all \enspace \textbf{n},\textbf{n}^{\prime};\\
+\sum_{\textbf{n}^{\prime}}q_{\textbf{n},\textbf{n}^{\prime}}&=\sum_{\textbf{n}^{\prime}}q_{\textbf{n},\textbf{n}^{\prime}}^*\qquad for\enspace all \enspace \textbf{n}
+\end{align*}
+Let us define $\rho_i = \lambda_i/\mu_i $,from equations(1)-(3) and (7)-(9), we have
+\begin{align*}
+p(\textbf{n})&=p(\textbf{n}^{\prime})/\rho_j\quad\quad\quad\quad\quad for\enspace\textbf{n}^{\prime} = \textbf{n} + \textbf{e}_j;\\
+p(\textbf{n})&=p(\textbf{n}^{\prime})\rho_i\quad\enspace\quad\quad\quad\quad for\enspace\textbf{n}^{\prime} = \textbf{n} - \textbf{e}_i, n_i > 0;\\
+p(\textbf{n})&=p(\textbf{n}^{\prime})\rho_i/\rho_j\quad\quad\quad\quad for\enspace\textbf{n}^{\prime} = \textbf{n} - \textbf{e}_i + \textbf{e}_j, n_i > 0;
+\end{align*}
+Starting from state p(0,0,...,0) iteratively solving for p(\textbf{n}), we obtain
+$p(\textbf{n})=p(0,0,...,0)\prod_{i=1}^N \rho_i^{n_i}$. Since $\sum_{n_1,n_2,...,n_k}p(\textbf{n}) = 1 =\sum_{n_1,n_2,...,n_k} p(0,0,...,0)\prod_{i=1}^N \rho_i^{n_i} = p(0,0,...,0)\sum_{n1} \rho_1^{n_1}\sum_{n2} \rho_2^{n_2}....\sum_{n_N} \rho_N^{n_N}$.\\
+Thus we have,\\
+\begin{align*}
+1&=p(0,0,...,0)(1-\rho_1)^{-1}(1-\rho_2)^{-1}...(1-\rho_N)^{-1}\\
+p(0,0,...,0)&=\prod_{i=1}^N(1-\rho_i)\\
+p(\textbf{n})&=p(0,0,...,0)\prod_{i=1}^N \rho_i^{n_i}=\prod_{i=1}^N\Big[(1-\rho_i)\rho_i^{n_i}\Big]
+\end{align*}
+It can be verified the above stationary probabilities satisfy the reversibility conditions. 
 \newpage
 \bibliographystyle{IEEEtran}
 \bibliography{SPQTproject}
